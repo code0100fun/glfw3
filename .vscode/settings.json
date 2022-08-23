@@ -1,0 +1,23 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "terminal.integrated.profiles.windows": {
+        "MSYS2": {
+            "path": "C:\\msys64\\usr\\bin\\bash.exe",
+            "args": [
+                "--login",
+            ],
+            "icon": "terminal-bash",
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "MSYS2",
+    "terminal.integrated.env.windows":
+    {
+        "MSYSTEM": "MINGW64",
+        "MSYS2_PATH_TYPE": "inherit",
+        "CHERE_INVOKING":"1"
+    },
+    "cmake.configureOnOpen": false,
+    "terminal.integrated.automationProfile.windows": {
+        "path": "powershell.exe"
+    }
+}

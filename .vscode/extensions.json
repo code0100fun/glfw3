@@ -1,0 +1,6 @@
+{
+    "recommendations": [
+        "vlanguage.vscode-vlang",
+        "ms-vscode.cpptools"
+    ]
+}
