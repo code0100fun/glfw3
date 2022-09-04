@@ -14,7 +14,8 @@ $ pacman -S mingw-w64-x86_64-glfw
 
 ### Linux
 ```
-TODO
+sudo apt-get install libglfw3
+sudo apt-get install libglfw3-dev
 ```
 
 ### OSX

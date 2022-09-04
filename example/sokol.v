@@ -1,4 +1,4 @@
-import glfw3 as glfw { GLFWHints, GLFWOpenGLProfile, GLHintValue }
+import code0100fun.glfw3 as glfw { GLFWHints, GLFWOpenGLProfile, GLHintValue }
 import sokol.gfx
 import sokol.sgl
 
