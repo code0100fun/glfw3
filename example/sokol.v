@@ -1,12 +1,13 @@
-import code0100fun.glfw3 as glfw { GLFWHints, GLFWOpenGLProfile, GLHintValue }
+import code0100fun.glfw3 as glfw { GLFWHints, GLFWOpenGLProfile, GLHintValue, Size }
 import sokol.gfx
 import sokol.sgl
+import gg
 
 [console]
 fn main() {
     mut app := &App{
-        width: 800
-        height: 800
+        size: Size{800, 800}
+        high_dpi: gg.high_dpi()
         main_window: 0
         pass_action: gfx.create_clear_pass(0.1, 0.1, 0.1, 1.0)
     }
@@ -18,8 +19,8 @@ fn main() {
 struct App {
     pass_action gfx.PassAction
 mut:
-    width       int
-    height      int
+    size        Size
+    high_dpi    bool
     main_window &glfw.GLFWwindow
     sg_context  gfx.Context
 }
@@ -54,6 +55,14 @@ fn (mut app App) run() {
     }
 }
 
+fn (app App) window_size() Size {
+    return if app.high_dpi {
+        Size{app.size.width * 2, app.size.height * 2}
+    } else {
+        app.size
+    }
+}
+
 fn (mut app App) init_sg() {
     desc := gfx.Desc{}
     gfx.setup(&desc)
@@ -64,13 +73,14 @@ fn (mut app App) frame() {
     app.main_window.make_context_current()
     gfx.activate_context(app.sg_context)
 
-    gfx.begin_default_pass(&app.pass_action, app.width, app.height)
+    size := app.main_window.get_framebuffer_size()
+    app.size.width = size.width
+    app.size.height = size.height
+
+    gfx.begin_default_pass(&app.pass_action, app.size.width, app.size.height)
     sgl.default_pipeline()
 
-    size := app.main_window.get_framebuffer_size()
-    app.width = size.width
-    app.height = size.height
-    sgl.viewport(0, 0, app.width, app.height, true)
+    sgl.viewport(0, 0, app.size.width, app.size.height, true)
     draw_triangle()
 
     sgl.draw()
@@ -86,11 +96,10 @@ fn (mut app App) init_glfw() {
     glfw.window_hint(GLFWHints.version_minor, 3)
     glfw.window_hint(GLFWHints.opengl_forward_compat, GLHintValue.gl_true)
     glfw.window_hint(GLFWHints.opengl_profile, GLFWOpenGLProfile.core)
-
+    size := app.window_size()
     win_opts := glfw.CreateWindowOptions{
-        // high dpi
-        width: app.width * 2
-        height: app.height * 2
+        width: size.width
+        height: size.height
         title: 'GLFW Window'
         monitor: 0
         share: 0
