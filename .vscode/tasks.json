@@ -1,21 +1,39 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"label": "build",
-			"type": "shell",
-			"command": "v",
-			"args": [
-				"-g",
-				"${relativeFile}"
-			],
-			"group": "build",
-			"presentation": {
-				"reveal": "silent"
-			},
-			"problemMatcher": [
-				"$gcc"
-			]
-		}
-	]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "v",
+            "args": [
+                "-g",
+                "${relativeFile}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "build debug",
+            "type": "shell",
+            "command": "v",
+            "args": [
+                "-keepc",
+                "-cg",
+                "-showcc",
+                "${relativeFile}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
 }
