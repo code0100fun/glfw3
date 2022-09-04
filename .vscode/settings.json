@@ -19,5 +19,24 @@
     "cmake.configureOnOpen": false,
     "terminal.integrated.automationProfile.windows": {
         "path": "powershell.exe"
-    }
+    },
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "[v]": {
+        "editor.insertSpaces": true
+    },
+    "emeraldwalk.runonsave": {
+        "shell": "bash",
+        "autoClearConsole": true,
+        "commands": [
+            {
+                "match": "\\.v$",
+                "cmd": "v crun bin/fmts.v '${relativeFile}'"
+            },
+            {
+                "match": "\\.vsh$",
+                "cmd": "v crun bin/fmts.v '${relativeFile}'"
+            },
+        ]
+    },
 }

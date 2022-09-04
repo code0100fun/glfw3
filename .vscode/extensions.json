@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "vlanguage.vscode-vlang",
-        "ms-vscode.cpptools"
+        "ms-vscode.cpptools",
+        "emeraldwalk.RunOnSave"
     ]
 }
