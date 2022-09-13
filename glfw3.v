@@ -50,6 +50,10 @@ pub fn (window &GLFWwindow) set_pos(x int, y int) {
     C.glfwSetWindowPos(window, x, y)
 }
 
+pub fn (window &GLFWwindow) set_framebuffer_size_callback(callback GLFWsizefun) GLFWsizefun {
+    return C.glfwSetFramebufferSizeCallback(window, callback)
+}
+
 pub fn (window &GLFWwindow) get_framebuffer_size() Size {
     mut width := 0
     mut height := 0
@@ -79,6 +83,17 @@ pub fn (window &GLFWwindow) set_cursor_pos_callback(callback GLFWcursorposfun) G
 
 pub fn (window &GLFWwindow) set_mouse_button_callback(callback GLFWmousebuttonfun) GLFWmousebuttonfun {
     return C.glfwSetMouseButtonCallback(window, callback)
+}
+
+pub fn (window &GLFWwindow) set_window_size_callback(callback GLFWsizefun) GLFWsizefun {
+    return C.glfwSetWindowSizeCallback(window, callback)
+}
+
+pub fn (window &GLFWwindow) get_window_size() Size {
+    mut width := 0
+    mut height := 0
+    C.glfwGetWindowSize(window, &width, &height)
+    return Size{width, height}
 }
 
 // glfwSetCharCallback

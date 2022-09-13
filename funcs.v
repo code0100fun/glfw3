@@ -10,6 +10,7 @@ fn C.glfwMakeContextCurrent(window &GLFWwindow)
 fn C.glfwDestroyWindow(window &GLFWwindow)
 fn C.glfwWindowShouldClose(window &GLFWwindow) bool
 fn C.glfwSetWindowPos(window &GLFWwindow, x int, y int)
+fn C.glfwSetFramebufferSizeCallback(window &GLFWwindow, callback GLFWsizefun) GLFWsizefun
 fn C.glfwGetFramebufferSize(window &GLFWwindow, width &int, height &int)
 fn C.glfwSwapBuffers(window &GLFWwindow)
 fn C.glfwSetWindowUserPointer(window &GLFWwindow, pointer voidptr)
@@ -18,3 +19,5 @@ fn C.glfwSetKeyCallback(window &GLFWwindow, callback GLFWkeyfun) GLFWkeyfun
 fn C.glfwSetCursorPosCallback(window &GLFWwindow, callback GLFWcursorposfun) GLFWcursorposfun
 fn C.glfwSetMouseButtonCallback(window &GLFWwindow, callback GLFWmousebuttonfun) GLFWmousebuttonfun
 fn C.glfwGetCurrentContext() &GLFWwindow
+fn C.glfwSetWindowSizeCallback(window &GLFWwindow, callback GLFWsizefun) GLFWsizefun
+fn C.glfwGetWindowSize(window &GLFWwindow, width &int, height &int)

@@ -6,3 +6,5 @@ pub type GLFWkeyfun = fn (window &GLFWwindow, key int, scancode int, action int,
 pub type GLFWcursorposfun = fn (window &GLFWwindow, xpos f64, ypos f64)
 
 pub type GLFWmousebuttonfun = fn (window &GLFWwindow, button int, action int, mods int)
+
+pub type GLFWsizefun = fn (window &GLFWwindow, width int, height int)
