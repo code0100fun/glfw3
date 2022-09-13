@@ -10,6 +10,7 @@ pub enum GLFWHints {
     version_minor = C.GLFW_CONTEXT_VERSION_MINOR
     opengl_forward_compat = C.GLFW_OPENGL_FORWARD_COMPAT
     opengl_profile = C.GLFW_OPENGL_PROFILE
+    visible = C.GLFW_VISIBLE
 }
 
 pub enum GLFWOpenGLProfile {

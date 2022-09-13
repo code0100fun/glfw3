@@ -2,3 +2,4 @@
 *.exe
 .vscode/*.log
 bin/fmts
+example/*.png
